@@ -1,0 +1,28 @@
+.new-todo {
+  display: flex;
+  align-self: flex-end;
+}
+.todo {
+  font-size: large;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 5px;
+  display: flex;
+  align-self: stretch;
+  box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.75);
+}
+.todo:hover {
+  box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.75);
+  text-decoration: none;
+}
+.description {
+  font-size: large;
+}
+.todo-details {
+  border-radius: 5px;
+  padding: 5px;
+  box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.75);
+}
+.todo-actions {
+  align-self: flex-end;
+}
