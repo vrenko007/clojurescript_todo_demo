@@ -1,0 +1,1 @@
+{"version":3,"sources":["todo_fechapter/config.cljs"],"mappings":";;AAEA,AAAKA,AACMC","names":["todo-fechapter.config/debug?","js/goog.DEBUG"],"sourcesContent":["(ns todo-fechapter.config)\n\n(def debug?\n  ^boolean goog.DEBUG)\n"]}
