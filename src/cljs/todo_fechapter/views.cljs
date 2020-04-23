@@ -26,6 +26,11 @@
    :emphasise? true
    :on-click #(set-hash! "#/new")])
 
+(defn link-to-weather-page []
+  [re-com/hyperlink-href
+   :label "Check Weather in Ljubljana"
+   :href "#/weather"])
+
 (defn home-data []
   (let [todos (re-frame/subscribe [::subs/todos])]
     [re-com/v-box
@@ -94,7 +99,7 @@
               [re-com/label :label "Description"]
               [:textarea {:field :textarea :id :description}]]])
 
-;; todo
+;; new todo
 (defn new-info []
   (let [doc (r/atom {:title "" :description ""})]
     (fn []
@@ -124,6 +129,36 @@
    :gap "1em"
    :children [[new-data]]])
 
+;; weather
+(defn weather-info [{:keys [name main weather]}]
+  ((.-log js/console) (first weather))
+  [re-com/v-box
+   :children [[re-com/title
+               :label name
+               :level :level2]
+              [:img {:src (str "http://openweathermap.org/img/wn/" (:icon (first weather)) "@2x.png") :width 100 :height 100}]
+              [re-com/p
+               {:class "description"}
+               (str
+                (:temp main)
+                "°C")]]])
+
+(defn weather-data []
+  (let [weather (re-frame/subscribe [::subs/weather])]
+    ((.-log js/console) @weather)
+    (if (or
+         (= @weather "Loading")
+         (= @weather nil))
+      [re-com/title
+       :label "Loading..."
+       :level :level2]
+      [weather-info @weather])))
+
+(defn weather-panel []
+  [re-com/v-box
+   :gap "1em"
+   :children [[weather-data]]])
+
 ;; main
 
 (defn- panels [panel-name]
@@ -131,6 +166,7 @@
     :home-panel [home-panel]
     :todo-panel [todo-panel]
     :new-panel [new-panel]
+    :weather-panel [weather-panel]
     [:div]))
 
 (defn show-panel [panel-name]
@@ -145,4 +181,7 @@
       :children [[re-com/title
                   :label "Clojurescript TODO Example"
                   :level :level1]
+                 (if-not (= @active-panel :weather-panel)
+                   (link-to-weather-page)
+                   (link-to-home-page))
                  [panels @active-panel]]]]))

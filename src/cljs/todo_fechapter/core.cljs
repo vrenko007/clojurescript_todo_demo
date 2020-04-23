@@ -6,7 +6,7 @@
    [todo-fechapter.routes :as routes]
    [todo-fechapter.views :as views]
    [todo-fechapter.config :as config]
-   ))
+   [day8.re-frame.http-fx]))
 
 
 (defn dev-setup []
