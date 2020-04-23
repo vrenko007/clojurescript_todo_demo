@@ -1,58 +1,52 @@
 # todo-fechapter
 
-A [re-frame](https://github.com/day8/re-frame) application designed to ... well, that part is up to
-you.
+A [re-frame](https://github.com/day8/re-frame) application.
 
 ## Getting Started
 
 ### Project Overview
 
-* Architecture:
-[Single Page Application (SPA)](https://en.wikipedia.org/wiki/Single-page_application)
-* Languages
+- Architecture:
+  [Single Page Application (SPA)](https://en.wikipedia.org/wiki/Single-page_application)
+- Languages
   - Front end ([re-frame](https://github.com/day8/re-frame)): [ClojureScript](https://clojurescript.org/) (CLJS)
   - CSS compilation ([`lein-less`](https://github.com/montoux/lein-less)): [Less](http://lesscss.org/features/)
-* Dependencies
+- Dependencies
   - UI framework: [re-frame](https://github.com/day8/re-frame)
-  ([docs](https://github.com/day8/re-frame/blob/master/docs/README.md),
-  [FAQs](https://github.com/day8/re-frame/blob/master/docs/FAQs/README.md)) ->
-  [Reagent](https://github.com/reagent-project/reagent) ->
-  [React](https://github.com/facebook/react)
+    ([docs](https://github.com/day8/re-frame/blob/master/docs/README.md),
+    [FAQs](https://github.com/day8/re-frame/blob/master/docs/FAQs/README.md)) ->
+    [Reagent](https://github.com/reagent-project/reagent) ->
+    [React](https://github.com/facebook/react)
   - Client-side routing: [Secretary](https://github.com/gf3/secretary)
   - UI components: [re-com](https://github.com/day8/re-com)
-* Build tools
+- Build tools
   - Project task & dependency management: [Leiningen](https://github.com/technomancy/leiningen)
   - CLJS compilation, REPL, & hot reload: [`shadow-cljs`](https://github.com/thheller/shadow-cljs)
   - CSS compilation: [`lein-less`](https://github.com/montoux/lein-less)
-* Development tools
+- Development tools
   - Debugging: [CLJS DevTools](https://github.com/binaryage/cljs-devtools)
 
 #### Directory structure
 
-* [`/`](/../../): project config files
-* [`dev/`](dev/): source files compiled only with the [dev](#running-the-app) profile
+- [`/`](/../../): project config files
+- [`dev/`](dev/): source files compiled only with the [dev](#running-the-app) profile
   - [`cljs/user.cljs`](dev/cljs/user.cljs): symbols for use during development in the
-[ClojureScript REPL](#connecting-to-the-browser-repl-from-a-terminal)
-* [`less/`](less/): CSS compilation source files ([Less](http://lesscss.org/features/))
-* [`resources/public/`](resources/public/): SPA root directory;
-[dev](#running-the-app) / [prod](#production) profile depends on the most recent build
+    [ClojureScript REPL](#connecting-to-the-browser-repl-from-a-terminal)
+- [`less/`](less/): CSS compilation source files ([Less](http://lesscss.org/features/))
+- [`resources/public/`](resources/public/): SPA root directory;
+  [dev](#running-the-app) / [prod](#production) profile depends on the most recent build
   - [`vendor/`](resources/public/vendor/): UI component CSS, fonts, and images
-  ([re-com](https://github.com/day8/re-com))
+    ([re-com](https://github.com/day8/re-com))
   - [`index.html`](resources/public/index.html): SPA home page
     - Dynamic SPA content rendered in the following `div`:
-        ```html
-        <div id="app"></div>
-        ```
+      ```html
+      <div id="app"></div>
+      ```
     - Customizable; add headers, footers, links to other scripts and styles, etc.
-  - Generated directories and files
-    - Created on build with either the [dev](#running-the-app) or [prod](#production) profile
-    - Deleted on `lein clean` (run by all `lein` aliases before building)
-    - `css/`: compiled CSS (`lein-less`, can also be
-[compiled manually](#compiling-css-with-lein-less))
-    - `js/compiled/`: compiled CLJS (`shadow-cljs`)
-      - Not tracked in source control; see [`.gitignore`](.gitignore)
-* [`src/cljs/todo_fechapter/`](src/cljs/todo_fechapter/): SPA source files (ClojureScript,
-[re-frame](https://github.com/Day8/re-frame))
+  - Generated directories and files - Created on build with either the [dev](#running-the-app) or [prod](#production) profile - Deleted on `lein clean` (run by all `lein` aliases before building) - `css/`: compiled CSS (`lein-less`, can also be
+    [compiled manually](#compiling-css-with-lein-less)) - `js/compiled/`: compiled CLJS (`shadow-cljs`) - Not tracked in source control; see [`.gitignore`](.gitignore)
+- [`src/cljs/todo_fechapter/`](src/cljs/todo_fechapter/): SPA source files (ClojureScript,
+  [re-frame](https://github.com/Day8/re-frame))
   - [`core.cljs`](src/cljs/todo_fechapter/core.cljs): contains the SPA entry point, `init`
 
 ### Editor/IDE
@@ -64,13 +58,13 @@ Use your preferred editor or IDE that supports Clojure/ClojureScript development
 
 1. Install [JDK 8 or later](https://openjdk.java.net/install/) (Java Development Kit)
 2. Install [Leiningen](https://leiningen.org/#install) (Clojure/ClojureScript project task &
-dependency management)
+   dependency management)
 3. Install [Node.js](https://nodejs.org/) (JavaScript runtime environment)
-7. Clone this repo and open a terminal in the `todo-fechapter` project root directory
-8. Download project dependencies:
-    ```sh
-    lein deps && npm install
-    ```
+4. Clone this repo and open a terminal in the `todo-fechapter` project root directory
+5. Download project dependencies:
+   ```sh
+   lein deps && npm install
+   ```
 
 ### Browser Setup
 
@@ -84,7 +78,7 @@ console in a more readable way.
 #### Chrome/Chromium
 
 1. Open [DevTools](https://developers.google.com/web/tools/chrome-devtools/) (Linux/Windows: `F12`
-or `Ctrl-Shift-I`; macOS: `⌘-Option-I`)
+   or `Ctrl-Shift-I`; macOS: `⌘-Option-I`)
 2. Open DevTools Settings (Linux/Windows: `?` or `F1`; macOS: `?` or `Fn+F1`)
 3. Select `Preferences` in the navigation menu on the left, if it is not already selected
 4. Under the `Network` heading, enable the `Disable cache (while DevTools is open)` option
@@ -93,11 +87,11 @@ or `Ctrl-Shift-I`; macOS: `⌘-Option-I`)
 #### Firefox
 
 1. Open [Developer Tools](https://developer.mozilla.org/en-US/docs/Tools) (Linux/Windows: `F12` or
-`Ctrl-Shift-I`; macOS: `⌘-Option-I`)
+   `Ctrl-Shift-I`; macOS: `⌘-Option-I`)
 2. Open [Developer Tools Settings](https://developer.mozilla.org/en-US/docs/Tools/Settings)
-(Linux/macOS/Windows: `F1`)
+   (Linux/macOS/Windows: `F1`)
 3. Under the `Advanced settings` heading, enable the `Disable HTTP Cache (when toolbox is open)`
-option
+   option
 
 Unfortunately, Firefox does not yet support custom formatters in their devtools. For updates, follow
 the enhancement request in their bug tracker:
@@ -138,27 +132,30 @@ Alternatively, search the web for info on connecting to a `shadow-cljs` ClojureS
 from your editor and configuration.
 
 For example, in Vim / Neovim with `fireplace.vim`
+
 1. Open a `.cljs` file in the project to activate `fireplace.vim`
 2. In normal mode, execute the `Piggieback` command with this project's running build id, `:app`:
-    ```vim
-    :Piggieback :app
-    ```
+   ```vim
+   :Piggieback :app
+   ```
 
 #### Connecting to the browser REPL from a terminal
 
 1. Connect to the `shadow-cljs` nREPL:
-    ```sh
-    lein repl :connect localhost:8777
-    ```
-    The REPL prompt, `shadow.user=>`, indicates that is a Clojure REPL, not ClojureScript.
+
+   ```sh
+   lein repl :connect localhost:8777
+   ```
+
+   The REPL prompt, `shadow.user=>`, indicates that is a Clojure REPL, not ClojureScript.
 
 2. In the REPL, switch the session to this project's running build id, `:app`:
-    ```clj
-    (shadow.cljs.devtools.api/nrepl-select :app)
-    ```
-    The REPL prompt changes to `cljs.user=>`, indicating that this is now a ClojureScript REPL.
+   ```clj
+   (shadow.cljs.devtools.api/nrepl-select :app)
+   ```
+   The REPL prompt changes to `cljs.user=>`, indicating that this is now a ClojureScript REPL.
 3. See [`user.cljs`](dev/cljs/user.cljs) for symbols that are immediately accessible in the REPL
-without needing to `require`.
+   without needing to `require`.
 
 ### Compiling CSS with `lein-less`
 
@@ -167,6 +164,7 @@ Use [Less](http://lesscss.org/features/) to edit styles in `.less` files located
 or [`prod`](#production) build.
 
 Manually compile CSS files:
+
 ```sh
 lein less once
 ```
@@ -176,6 +174,7 @@ The `resources/public/css/` directory is created, containing the compiled CSS fi
 #### Compiling CSS with `lein-less` on change
 
 Enable automatic compiling of CSS files when source `.less` files are changed:
+
 ```sh
 lein less auto
 ```
@@ -184,6 +183,7 @@ lein less auto
 
 See a list of [`shadow-cljs CLI`](https://shadow-cljs.github.io/docs/UsersGuide.html#_command_line)
 actions:
+
 ```sh
 lein run -m shadow.cljs.devtools.cli --help
 ```
@@ -192,9 +192,11 @@ Please be patient; it may take over 10 seconds to see any output. Also note that
 may not actually be supported, outputting "Unknown action." when run.
 
 Run a shadow-cljs action on this project's build id (without the colon, just `app`):
+
 ```sh
 lein run -m shadow.cljs.devtools.cli <action> app
 ```
+
 ### Debug Logging
 
 The `debug?` variable in [`config.cljs`](src/cljs/todo_fechapter/config.cljs) defaults to `true` in
